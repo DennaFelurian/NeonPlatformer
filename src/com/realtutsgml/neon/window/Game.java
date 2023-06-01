@@ -5,6 +5,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
+
+import com.realtutsgml.neon.framework.ObjectID;
+import com.realtutsgml.neon.objects.Block;
+import com.realtutsgml.neon.objects.Test;
+
 public class Game extends Canvas implements Runnable {
 	
 
@@ -13,6 +18,17 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 	
+	//Object
+	Handler handler;
+	
+	
+	
+	private void init() {
+		handler = new Handler();
+		
+	}
+	
+	//if already started the game, don´t open another window
 	public synchronized void start() {
 		if (running)
 			return;
@@ -25,6 +41,9 @@ public class Game extends Canvas implements Runnable {
 
 	public void run()
 	{
+		//running with 60fps 
+		init();
+		this.requestFocus();
 		long lastTime = System.nanoTime();
 		double amountOfTicks= 60.0;
 		double ns = 1000000000 / amountOfTicks;
@@ -55,7 +74,7 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	private void tick() {
-		
+		handler.tick();
 	}
 	
 	private void render() {
@@ -69,15 +88,19 @@ public class Game extends Canvas implements Runnable {
 		//////////////////////////////////
 		
 		//Draw Here///////////////////////
+		//black background
 		g.setColor(Color.black);
+		//size of window
 		g.fillRect(0, 0, getWidth(), getHeight());
+		
+		handler.render(g);
 		//////////////////////////////////
 		g.dispose();
 		bs.show();
 		
 	}
 	public static void main(String args []){
-		
+		//width, height and title
 		new Window (800, 600, "Neon Platform Game Prototype", new Game());
 	}
 	}
