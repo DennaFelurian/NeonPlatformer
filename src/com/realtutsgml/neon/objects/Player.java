@@ -23,7 +23,7 @@ public class Player extends GameObject{
 	
 	public void tick(LinkedList<GameObject> object) {
 		x += velX;
-		//y += velY;
+		y += velY;
 		
 		if (falling || jumping) {
 			velY += gravity;
@@ -40,7 +40,6 @@ public class Player extends GameObject{
 		g.fillRect((int)x, (int)y, (int)width, (int)height);
 		
 		Graphics2D g2d = (Graphics2D) g;
-		g.setColor(Color.red);
 		g2d.draw(getBounds());
 		g2d.draw(getBoundsRight());
 		g2d.draw(getBoundsLeft());

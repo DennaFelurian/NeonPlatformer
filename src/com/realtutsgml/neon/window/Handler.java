@@ -9,7 +9,6 @@ import com.realtutsgml.neon.objects.Block;
 
 public class Handler {
 
-	
 	public LinkedList<GameObject> object = new LinkedList<GameObject>();
 	
 	private GameObject tempObject;

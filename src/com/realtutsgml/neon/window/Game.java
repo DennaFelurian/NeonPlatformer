@@ -22,7 +22,6 @@ public class Game extends Canvas implements Runnable {
 	
 	public static int WIDTH, HEIGHT;
 	
-	//Object
 	Handler handler;
 	
 	
@@ -95,9 +94,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		
 		Graphics g = bs.getDrawGraphics();
-		//////////////////////////////////
 		
-		//Draw Here///////////////////////
 		//black background
 		g.setColor(Color.black);
 		//size of window

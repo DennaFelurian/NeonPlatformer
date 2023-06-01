@@ -17,6 +17,7 @@ public abstract class GameObject {
 		return falling;
 	}
 
+	
 	public void setFalling(boolean falling) {
 		this.falling = falling;
 	}
