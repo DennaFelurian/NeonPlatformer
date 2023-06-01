@@ -1,6 +1,7 @@
 package com.realtutsgml.neon.window;
 
 import java.awt.Canvas;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -8,7 +9,8 @@ import java.awt.image.BufferStrategy;
 
 import com.realtutsgml.neon.framework.ObjectID;
 import com.realtutsgml.neon.objects.Block;
-import com.realtutsgml.neon.objects.Test;
+import com.realtutsgml.neon.objects.Player;
+
 
 public class Game extends Canvas implements Runnable {
 	
@@ -18,14 +20,22 @@ public class Game extends Canvas implements Runnable {
 	private boolean running = false;
 	private Thread thread;
 	
+	public static int WIDTH, HEIGHT;
+	
 	//Object
 	Handler handler;
 	
 	
 	
 	private void init() {
+		
+		WIDTH = getWidth();
+		HEIGHT = getHeight();
+		
 		handler = new Handler();
 		
+		handler.addObject(new Player(100, 100, ObjectID.Player));
+		handler.createLevel();
 	}
 	
 	//if already started the game, don´t open another window

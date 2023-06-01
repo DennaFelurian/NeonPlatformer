@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.util.LinkedList;
 
 import com.realtutsgml.neon.framework.GameObject;
+import com.realtutsgml.neon.framework.ObjectID;
+import com.realtutsgml.neon.objects.Block;
 
 public class Handler {
 
@@ -38,7 +40,7 @@ public class Handler {
 	
 	public void createLevel() {
 		for(int xx = 0; xx < Game.WIDTH+32; xx += 32)
-			addObject(new Block(xx, Game.HEIGHT-32, ObjectID.Block));
+			addObject(new Block(xx, Game.HEIGHT-64, ObjectID.Block));
 	}
 	
 }
